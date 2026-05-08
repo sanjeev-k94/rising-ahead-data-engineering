@@ -1,0 +1,14 @@
+postgres:
+  host: localhost
+  port: 5432
+  database: data_platform
+  user: postgres
+  password: postgres
+
+pipelines:
+  bronze_enabled: true
+  silver_enabled: true
+  gold_enabled: true
+
+schedules:
+  daily_run: "0 9 * * *"
