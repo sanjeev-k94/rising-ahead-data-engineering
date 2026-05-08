@@ -16,6 +16,9 @@ from pipeline.assets.silver import (
 
 from pipeline.assets.gold import gold_customer_summary
 
+from pipeline.schedules.daily_schedule import daily_materialization_schedule
+from pipeline.checks.customer_checks import customer_null_check
+
 
 defs = Definitions(
     assets=[
@@ -30,5 +33,13 @@ defs = Definitions(
         silver_loans,
 
         gold_customer_summary
+    ],
+
+    schedules=[
+        daily_materialization_schedule
+    ],
+
+    asset_checks=[
+        customer_null_check
     ]
 )
