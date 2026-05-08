@@ -46,21 +46,55 @@ Raw ingestion from CSV files.
 Cleaned and transformed datasets.
 
 ### Gold
-Customer summary analytics dataset.
+- Customer summary analytics dataset
+- Monthly analytics dataset
+- Risk scoring dataset
 
 ## Features
-- Dagster assets
+- Dagster asset orchestration
+- Bronze / Silver / Gold layered architecture
 - PostgreSQL integration
-- Change detection using row hash
-- Dockerized setup
-- Layered architecture
+- Dockerized local environment
+- Incremental loading using row hash
+- Dagster schedules and sensors
+- Asset checks for data quality
+- Logging and monitoring
+- YAML-driven configuration support
+- GitHub Actions CI/CD pipeline
+- Automated pytest execution
 
 ## Screenshots
 See screenshots folder.
 
+# Architecture
+The pipeline follows a layered Bronze → Silver → Gold architecture using Dagster for orchestration and PostgreSQL for storage.
+
+# Data Flow
+CSV Files → Bronze Layer → Silver Transformations → Gold Analytics Tables
+
+# Incremental Loading Strategy
+Silver transactions use row-level hashing to detect new or changed records before appending data into PostgreSQL tables.
+
+# Dagster Orchestration
+Dagster assets, schedules, sensors, and asset checks are used to orchestrate and monitor the pipeline.
+
+# Asset Checks
+Asset checks validate customer data quality by verifying null conditions on important columns.
+
+# CI/CD Pipeline
+GitHub Actions automatically installs dependencies and runs pytest validations on every push to the main branch.
+
+# Configuration Management
+Environment variables, .env files, and YAML configuration support deployment flexibility across environments.
+
 ## Future Improvements
-- Add schedules
-- Add sensors
-- Add asset checks
-- Add unit tests
-- Add incremental loading
+- Add cloud deployment support (AWS/GCP/Azure)
+- Add dbt transformation layer
+- Add real-time streaming ingestion
+- Add advanced data quality monitoring
+- Add alerting integrations (Slack/Email)
+- Improve partitioned incremental processing
+
+## Dagster Assets
+
+![Dagster Assets](screenshots/dagster_assets.png)
