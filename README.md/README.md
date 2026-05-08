@@ -8,6 +8,17 @@
 - Pandas
 - SQLAlchemy
 
+## Configuration Handling
+
+The project is designed to support multiple client deployments using configurable environment-based settings.
+
+Configuration can be managed through:
+- .env files for database credentials and secrets
+- YAML configuration files for pipeline schedules and active datasets
+- Environment variables for deployment-specific values
+
+This avoids hardcoded credentials and makes the platform reusable across different client environments with minimal code changes.
+
 ## Project Structure
 
 connectors/
